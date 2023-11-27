@@ -31,5 +31,16 @@ sudo nano /etc/redis/redis.conf
 ```
 Locate the line “bind 127.0.0.1 ::1”
 Change the IP address by entering the values of the connections you want the Redis server to listen for
+```
+bind 172.16.1.2
+```
+In order to add multiple IP addresses, simply separate the IP addresses with a space like:
+```
+bind 172.16.1.4 172.16.1.6
+```
+However, if you want the server to listen to all the interfaces on the network, you can comment out the bind line entirely
 
-## Here’s an example for 
+Once you are done making changes, save and close the file. Then restart the Redis service to apply the changes:
+```
+sudo systemctl restart redis-server
+```
