@@ -62,3 +62,7 @@ Once you are done making changes, save and close the file. Then restart the Redi
 ```
 sudo systemctl restart redis-server
 ```
+
+***
+
+## On both servers, install Redis Sentinel as follows:
