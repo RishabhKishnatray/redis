@@ -8,10 +8,10 @@
 
 ### Minimum Requirements
 | Requirement           | Minimum Recommendation | 
-|  ----------           | ---                    |
-| **RAM:**              |          30            |
-| **Disk Space (ROM):** |          25            |
-| **OS Supported:**     |          40            |
+|  ----------           |           ---          |
+| **RAM:**              |    2 GB or Higher      |
+| **Disk Space (ROM):** |  08 Gigabyte or Higher |
+| **OS Supported:**     |     Ubuntu 20.04       |
 
 - **RAM:** 2 GB or Higher
 - **Disk Space (ROM):** 10 Gigabytes or Higher
