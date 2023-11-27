@@ -18,8 +18,9 @@
 - **OS Supported:** Ubuntu 20.04
 
 ### Important Ports
-
-- **6379:** Default port for Redis
+| Port Number           | Description            | 
+|  ----------           |           ---          |
+|  **6379:**            | Default port for Redis |
 
 ## Download dependency of redis
 Download Redis GPG key, which is used for package verification and security.
