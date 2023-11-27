@@ -25,4 +25,11 @@ sudo systemctl start redis-server
 redis-cli ping
 ```
 ## Configuration
-The Redis configuration file is usually located at "/etc/redis/redis.conf" on Linux systems. You can edit this file to modify various settings, such as port, binding address, and more.
+The Redis configuration file is usually located at /etc/redis/redis.conf on Linux systems. You can edit this file to modify various settings, such as port and binding address and more.
+```
+sudo nano /etc/redis/redis.conf
+```
+Locate the line “bind 127.0.0.1 ::1”
+Change the IP address by entering the values of the connections you want the Redis server to listen for
+
+## Here’s an example for 
