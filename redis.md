@@ -64,5 +64,13 @@ sudo systemctl restart redis-server
 ```
 
 ***
-
-## On both servers, install Redis Sentinel as follows:
+# Steup Master-slave
+After the installation of redis in all the servers you should install sentinel in all the servers to configure master-slave
+## Install Sentinel
+Install Redis Sentinel using below commands:
+```
+sudo apt install redis-sentinel
+sudo systemctl enable redis-sentinel
+```
+## Redis Replication Configuration
+After installing the redis now we are configuring the master and slave server as follows:
