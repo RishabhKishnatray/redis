@@ -1,4 +1,21 @@
 # Install Redis Master on Ubuntu server
+# Redis Installation on AWS EC2 Instance
+
+## Introduction
+
+Redis is an open-source, in-memory data structure server that serves as a database, cache, or message broker. This guide outlines the steps to install Redis on an AWS EC2 instance using Ubuntu 20.04.
+
+## Prerequisites
+
+### Minimum Requirements
+
+- **RAM:** 2 GB or Higher
+- **Disk Space (ROM):** 8 Gigabytes or Higher
+- **OS Supported:** Ubuntu 20.04
+
+### Important Ports
+
+- **6379:** Default port for Redis
 
 ## Download dependency of redis
 Download Redis GPG key, which is used for package verification and security.
