@@ -1,9 +1,8 @@
-# Install Redis on Ubuntu server
+# Install Redis Master on Ubuntu server
 
 ## Install dependency to compile redis
 ```
-sudo apt-get install build-essential
-sudo apt-get install tcl8.5
+curl -fsSL https://packages.redis.io/gpg | sudo gpg --dearmor -o /usr/share/keyrings/redis-archive-keyring.gpg
 ```
 
 ## Download and install
