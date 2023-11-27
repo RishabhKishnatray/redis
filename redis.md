@@ -1,54 +1,28 @@
 # Install Redis Master on Ubuntu server
 
-## Install dependency to compile redis
+## Download dependency of redis
 Download Redis GPG key, which is used for package verification and security.
 ```
 curl -fsSL https://packages.redis.io/gpg | sudo gpg --dearmor -o /usr/share/keyrings/redis-archive-keyring.gpg
 ```
-
-## Download and install
-
-Download latest version via wget
+Add the Redis repository
 ```
-wget http://download.redis.io/releases/redis-3.0.1.tar.gz
+echo "deb [signed-by=/usr/share/keyrings/redis-archive-keyring.gpg] https://packages.redis.io/deb $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/redis.list
 ```
 
-Untar the downloaded package
+## Install the Redis package from the repository
 ```
-tar xzf redis-3.0.1.tar.gz
+sudo apt-get update
+sudo apt-get install redis -y
 ```
-
-Change directory downloaded folder
-```
-cd redis-3.0.1
-```
-
-Then compile and install 
-```
-make
-make test
-sudo make install
-```
-
-## Install redis server globally
-```
-cd utils
-sudo ./install_server.sh
-```
-
-Setup redis to automatically running on boot
-```
-sudo update-rc.d redis_6379 defaults
-```
-
-## Test installation
-
-Run on console
-```
-redis-cli
-```
-
-you will see redis console like this
-```
-127.0.0.1:6379>
-```
+## Check Redis Version
+'''
+redis-server --version
+'''
+## After installing the redis server, now we are checking the installation by login into the redis-cli
+'''
+sudo systemctl start redis-server
+redis-cli ping
+'''
+## Configuration
+The Redis configuration file is usually located at '/etc/redis/redis.conf' on Linux systems. You can edit this file to modify various settings, such as port, binding address, and more.
