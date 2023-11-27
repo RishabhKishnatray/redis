@@ -13,14 +13,10 @@
 | **Disk Space (ROM):** |  08 Gigabyte or Higher |
 | **OS Supported:**     |     Ubuntu 20.04       |
 
-- **RAM:** 2 GB or Higher
-- **Disk Space (ROM):** 10 Gigabytes or Higher
-- **OS Supported:** Ubuntu 20.04
-
 ### Important Ports
 | Port Number           | Description            | 
 |  ----------           |           ---          |
-|  **6379:**            | Default port for Redis |
+|  **6379**            | Default port for Redis |
 
 ## Download dependency of redis
 Download Redis GPG key, which is used for package verification and security.
