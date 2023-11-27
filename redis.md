@@ -35,7 +35,7 @@ sudo apt-get install redis -y
 ```
 redis-server --version
 ```
-## After installing the redis server, now we are checking the installation by login into the redis-cli
+After installing the redis server, now we are checking the installation by login into the redis-cli
 ```
 sudo systemctl start redis-server
 redis-cli ping
