@@ -107,3 +107,12 @@ sentinel down-after-milliseconds mymaster 30000
 sentinel failover-timeout mymaster 60000
 sentinel parallel-syncs mymaster 1
 ```
+## Check the Redis Setup
+Retrieve information about the replication configuration and status of a Redis server. When you run the following command:
+```
+info replication
+```
+## To run the command redis-server /etc/redis/sentinel.conf --sentinel on both servers to monitor the master Redis server.
+```
+redis-server /etc/redis/sentinel.conf --sentinel
+```
