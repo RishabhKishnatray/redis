@@ -11,7 +11,7 @@ Redis is an open-source, in-memory data structure server that serves as a databa
 | ----------            | --- | ------------- |
 | **RAM:**              | 30  | Developer     |
 | **Disk Space (ROM):** | 25  | Designer      |
-| **OS Supported:**     | Project Manager|
+| **OS Supported:**     | Project Manager     |
 
 - **RAM:** 2 GB or Higher
 - **Disk Space (ROM):** 10 Gigabytes or Higher
