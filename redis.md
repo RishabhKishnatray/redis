@@ -16,13 +16,13 @@ sudo apt-get update
 sudo apt-get install redis -y
 ```
 ## Check Redis Version
-'''
+```
 redis-server --version
-'''
+```
 ## After installing the redis server, now we are checking the installation by login into the redis-cli
-'''
+```
 sudo systemctl start redis-server
 redis-cli ping
-'''
+```
 ## Configuration
-The Redis configuration file is usually located at '/etc/redis/redis.conf' on Linux systems. You can edit this file to modify various settings, such as port, binding address, and more.
+The Redis configuration file is usually located at '''/etc/redis/redis.conf''' on Linux systems. You can edit this file to modify various settings, such as port, binding address, and more.
