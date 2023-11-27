@@ -8,7 +8,7 @@ Redis is an open-source, in-memory data structure server that serves as a databa
 
 ### Minimum Requirements
 | Requirement           | Minimum Recommendation | 
-| ----------            | ---                    |
+|  ----------            | ---                    |
 | **RAM:**              | 30                     |
 | **Disk Space (ROM):** | 25                     |
 | **OS Supported:**     | 40                     |
