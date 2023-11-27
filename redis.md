@@ -1,6 +1,7 @@
 # Install Redis Master on Ubuntu server
 
 ## Install dependency to compile redis
+Download Redis GPG key, which is used for package verification and security.
 ```
 curl -fsSL https://packages.redis.io/gpg | sudo gpg --dearmor -o /usr/share/keyrings/redis-archive-keyring.gpg
 ```
