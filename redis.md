@@ -1,5 +1,4 @@
-# Install Redis Master on Ubuntu server
-# Redis Installation on AWS EC2 Instance
+# Install Redis Master on Linux
 
 ## Introduction
 
