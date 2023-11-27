@@ -9,7 +9,7 @@ Redis is an open-source, in-memory data structure server that serves as a databa
 ### Minimum Requirements
 
 - **RAM:** 2 GB or Higher
-- **Disk Space (ROM):** 8 Gigabytes or Higher
+- **Disk Space (ROM):** 10 Gigabytes or Higher
 - **OS Supported:** Ubuntu 20.04
 
 ### Important Ports
