@@ -7,9 +7,11 @@ Redis is an open-source, in-memory data structure server that serves as a databa
 ## Prerequisites
 
 ### Minimum Requirements
-| **RAM:**              | 30  | Developer     |
-| **Disk Space (ROM):** | 25  | Designer      |
-| **OS Supported:**     | Project Manager     |
+| Requirement           | Minimum Recommendation | 
+| ----------            | ---                    |
+| **RAM:**              | 30                     |
+| **Disk Space (ROM):** | 25                     |
+| **OS Supported:**     | 40                     |
 
 - **RAM:** 2 GB or Higher
 - **Disk Space (ROM):** 10 Gigabytes or Higher
