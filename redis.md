@@ -2,16 +2,16 @@
 
 ## Introduction
 
-Redis is an open-source, in-memory data structure server that serves as a database, cache, or message broker. This guide outlines the steps to install Redis on an AWS EC2 instance using Ubuntu 20.04.
+ Redis is a NoSQL open-source, in-memory data structure server that can be used as a database, cache, or message broker. It is often used for caching web pages and reducing the load on servers
 
 ## Prerequisites
 
 ### Minimum Requirements
 | Requirement           | Minimum Recommendation | 
-|  ----------            | ---                    |
-| **RAM:**              | 30                     |
-| **Disk Space (ROM):** | 25                     |
-| **OS Supported:**     | 40                     |
+|  ----------           | ---                    |
+| **RAM:**              |          30            |
+| **Disk Space (ROM):** |          25            |
+| **OS Supported:**     |          40            |
 
 - **RAM:** 2 GB or Higher
 - **Disk Space (ROM):** 10 Gigabytes or Higher
