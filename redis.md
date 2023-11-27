@@ -64,6 +64,8 @@ sudo systemctl restart redis-server
 ```
 
 ***
+***
+
 # Setup Master-slave
 After the installation of redis in all the servers you should install sentinel in all the servers to configure master-slave
 ## Install Sentinel
@@ -97,3 +99,11 @@ After changing the parameter values in the configuration file now we need to res
 sudo systemctl restart redis-server.service
 ```
 ## Configure Redis Sentinel
+This section demonstrates how to configure the `sentinel.conf` file to monitor the master server. On both servers, add this configuration file at the following path: `/etc/redis/sentinel.conf`.
+```bash
+sudo nano /etc/redis/sentinel.conf
+sentinel monitor mymaster <MASTER_NODE_IP> 6379 quorum
+sentinel down-after-milliseconds mymaster 30000           
+sentinel failover-timeout mymaster 60000
+sentinel parallel-syncs mymaster 1
+```
