@@ -65,8 +65,7 @@ Locate the line “protected-mode” and Change the values of the protected-mode
 ```
 protected-mode no
 ```
-Locate the line “bind 127.0.0.1 ::1”
-Change the entering IP address by the values of the connections you want the Redis server to listen for
+Locate the line “bind 127.0.0.1 ::1” & Change the entering IP address by the values of the connections you want the Redis server to listen for
 ```              
 bind <Master_IP>
 ```
@@ -115,16 +114,23 @@ Look for the role field in the output. It should be "slave," and the master_host
 
 ## Write Data to the Master Node
 Use a Redis  command-line interface to connect to the Redis master node.
+
 Example command for writing data:
 ```
 redis-cli -h master_ip -p master_port
 SET key value
 ```
 
+## Read Data from the Slave Node
+Connect to the Redis slave node using a Redis  command-line interface.
 
+Example command for reading data:
+```
+redis-cli -h slave_ip -p slave_port
+GET key
+```
 
-
-
+Confirm that the data read from the slave node matches the data written to the master. The value retrieved from the slave should be the same as the one written to the master.
 
 
 
