@@ -1,4 +1,4 @@
-
+![image](https://github.com/RishabhKishnatray/redis/assets/89369743/78ae5221-1eab-4d60-bb1c-7f69b590d84b)
 
 # Install Redis on Linux
 
