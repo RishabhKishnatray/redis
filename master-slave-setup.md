@@ -1,3 +1,5 @@
+
+
 # Install Redis on Linux
 
 # Introduction
@@ -25,7 +27,7 @@ In Redis, master-slave replication is a feature that allows you to create copies
 * Data Redundancy:   Protect against data loss by having multiple copies of the dataset.
 
 
-## Redis Master Setup
+# Redis Master Setup
 For setup Redis master you need to install some dependency on you server
 
 ## Download dependency of redis
@@ -76,7 +78,6 @@ sudo systemctl restart redis-server
 ```
 
 ***
-
 # Redis slave Setup
 For setup slave you can to perform the same steps like master but the configuration file settings are different 
 
@@ -95,7 +96,7 @@ After changing the parameter values in the configuration file now we need to res
 ```
 sudo systemctl restart redis-server.service
 ```
-
+***
 # Validation of Redis Data Replication  Write on Master, Read on Slave
 
 Beform perform this you should ensure that Redis master-slave is correctly configured.
@@ -131,7 +132,7 @@ GET key
 ```
 
 Confirm that the data read from the slave node matches the data written to the master. The value retrieved from the slave should be the same as the one written to the master.
-
+***
 # Manual Failover in Redis: Promoting a Slave to Master
 Perform a manual failover in Redis by stopping the original master node, promoting a slave node to become the new master
 
@@ -158,7 +159,7 @@ Check the replication status to ensure that the original master is successfully 
 redis-cli -h <original_master_ip> -p <original_master_port>
 INFO replication
 ```
-
+*** 
 # Conclusion
 While manual failover is a straightforward process, it might not be the most efficient or automated solution, especially in a production environment where high availability is crucial. Redis Sentinel is specifically designed to address this need by providing automated monitoring and failover capabilities
 
@@ -173,7 +174,7 @@ sudo systemctl enable redis-sentinel
 This section demonstrates how to configure the "/etc/redis/sentinel.conf" file to monitor the master server. On both servers, add this configuration file at the following path: `/etc/redis/sentinel.conf`.
 ```
 sudo nano /etc/redis/sentinel.conf
-sentinel monitor mymaster <MASTER_NODE_IP> 6379 quorum
+sentinel monitor mymaster <MASTER_NODE_IP> 6379 <quorum>
 sentinel down-after-milliseconds mymaster 30000           
 sentinel failover-timeout mymaster 60000
 sentinel parallel-syncs mymaster 1
