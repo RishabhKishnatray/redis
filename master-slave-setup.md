@@ -1,7 +1,5 @@
 ![image](https://github.com/RishabhKishnatray/redis/assets/89369743/78ae5221-1eab-4d60-bb1c-7f69b590d84b)
 
-# Install Redis on Linux
-
 # Introduction
 In Redis, master-slave replication is a feature that allows you to create copies (slaves) of a Redis database from a primary instance (master). This replication mechanism is useful for various purposes, including data redundancy, load balancing, and high availability
 
