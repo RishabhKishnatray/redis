@@ -3,7 +3,7 @@ In Redis, master-slave replication is a feature that allows you to create copies
 
 ## Master Node
 
-The master node is the primary Redis instance that holds the original dataset.
+* The master node is the primary Redis instance that holds the original dataset.
 It accepts write operations and serves as the source of truth for the data.
 
 ## Slave Node
