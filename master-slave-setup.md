@@ -132,41 +132,45 @@ GET key
 
 Confirm that the data read from the slave node matches the data written to the master. The value retrieved from the slave should be the same as the one written to the master.
 
+# Manual Failover in Redis: Promoting a Slave to Master
+Perform a manual failover in Redis by stopping the original master node, promoting a slave node to become the new master
 
+Stop the Redis Master Node
+```
+redis-cli -h master_ip -p master_port SHUTDOWN
+```
+## Verify New Master Status
+Check the status of the new master node to ensure it has taken over:
+```
+redis-cli -h <new_master_ip> -p <new_master_port>
+INFO replication
+```
+## Reconfigure the Original Master as a Slave
+Update the configuration of the original master to replicate from the new master
+```
+redis-cli -h <original_master_ip> -p <original_master_port>
+SLAVEOF <new_master_ip> <new_master_port>
+```
 
+## Verify Replication Status
+Check the replication status to ensure that the original master is successfully replicating from the new master  
+```
+redis-cli -h <original_master_ip> -p <original_master_port>
+INFO replication
+```
 
-## Install Sentinel
-Install Redis Sentinel using below commands:
+# Conclusion
+While manual failover is a straightforward process, it might not be the most efficient or automated solution, especially in a production environment where high availability is crucial. Redis Sentinel is specifically designed to address this need by providing automated monitoring and failover capabilities
+
+## Install Sentinel 
+Install Redis Sentinel on all redis servers using below commands:
 ```
 sudo apt install redis-sentinel
 sudo systemctl enable redis-sentinel
 ```
-## Redis Replication Configuration
-After installing the redis now we are configuring the master and slave server as follows:
 
-## Configuring Master Server
-To configure the master server , opening the redis configuration file "/etc/redis/redis.conf" then change the below parameter value in the configuration file.
-```
-protected-mode no              
-bind <Master_IP>
-```
-After changing the parameter values in the configuration file now we need to restart the redis server as follows.
-```
-sudo systemctl restart redis-server.service
-```
-## Configuring Slave Server
-To configure the slave server, opening the redis configuration file "/etc/redis/redis.conf"  then change the below parameter value in the configuration file.
-```
-protected-mode no
-bind <Slave_Ip>
-replicaof <masterip> <masterport>
-```
-After changing the parameter values in the configuration file now we need to restart the redis server as follows.
-```
-sudo systemctl restart redis-server.service
-```
 ## Configure Redis Sentinel
-This section demonstrates how to configure the `sentinel.conf` file to monitor the master server. On both servers, add this configuration file at the following path: `/etc/redis/sentinel.conf`.
+This section demonstrates how to configure the "/etc/redis/sentinel.conf" file to monitor the master server. On both servers, add this configuration file at the following path: `/etc/redis/sentinel.conf`.
 ```
 sudo nano /etc/redis/sentinel.conf
 sentinel monitor mymaster <MASTER_NODE_IP> 6379 quorum
@@ -177,6 +181,7 @@ sentinel parallel-syncs mymaster 1
 ## Check the Redis Setup
 Retrieve information about the replication configuration and status of a Redis server. When you run the following command:
 ```
+redis-cli
 info replication
 ```
 ## To run the command redis-server /etc/redis/sentinel.conf --sentinel on both servers to monitor the master Redis server.
