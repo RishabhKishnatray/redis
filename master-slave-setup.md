@@ -43,26 +43,32 @@ echo "deb [signed-by=/usr/share/keyrings/redis-archive-keyring.gpg] https://pack
 sudo apt-get update
 sudo apt-get install redis -y
 ```
-## Check Redis Version
-```
-redis-server --version
-```
+
 ## After installing the redis, Now you can check the redis installation by login into the redis-cli
 ```
 sudo systemctl start redis-server
 redis-cli ping
 ```
 
+## Check Redis Version
+```
+redis-server --version
+```
+
 ## Redis Master Configuration
 
-TO configure redis master you need to edit Redis configuration file and it is usually located at "/etc/redis/redis.conf" on Linux systems. You can edit this file to modify various settings, such as port and binding address and more.
+To configure redis master you need to edit Redis configuration file and it is usually located at "/etc/redis/redis.conf" on Linux systems. You can edit this file to modify various settings, such as port and binding address and more.
 ```
 sudo nano /etc/redis/redis.conf
 ```
+Locate the line “protected-mode” and Change the values of the protected-mode
+```
+protected-mode no
+```
 Locate the line “bind 127.0.0.1 ::1”
 Change the entering IP address by the values of the connections you want the Redis server to listen for
-```
-bind 172.16.1.2
+```              
+bind <Master_IP>
 ```
 
 Once you are done making changes, save and close the file. Then restart the Redis service to apply the changes:
@@ -71,10 +77,58 @@ sudo systemctl restart redis-server
 ```
 
 ***
-***
 
-# Setup Master-slave
-After the installation of redis in all the servers you should install sentinel in all the servers to configure master-slave
+# Redis slave Setup
+For setup slave you can to perform the same steps like master but the configuration file settings are different 
+
+## Redis Slave Configuration
+To configure redis slave you need to edit Redis configuration file and it is usually located at "/etc/redis/redis.conf " on Linux systems. You can edit this file to modify various settings, such as port and binding address and more.
+Locate the line “protected-mode” and Change the values of the protected-mode
+```
+protected-mode no
+```
+Locate the line “bind 127.0.0.1 ::1” & replicaof 127.0.0.0 6379 and Change the entering IP address by the values of the connections you want the Redis server to listen for
+```              
+bind <Slave_Ip>
+replicaof <masterip> <masterport>
+```
+After changing the parameter values in the configuration file now we need to restart the redis server as follows.
+```
+sudo systemctl restart redis-server.service
+```
+
+# Validation of Redis Data Replication  Write on Master, Read on Slave
+
+Beform perform this you should ensure that Redis master-slave is correctly configured.
+Run the below command on both the master and slave servers to check their status:
+```
+redis-cli ping
+```
+You should receive a "PONG" response from both servers, indicating that they are running.
+
+## Check Replication Status:
+You can check the replication status by using the following command on the slave server:
+```
+redis-cli info replication
+```
+Look for the role field in the output. It should be "slave," and the master_host and master_port fields should contain the correct information about the master.
+
+## Write Data to the Master Node
+Use a Redis  command-line interface to connect to the Redis master node.
+Example command for writing data:
+```
+redis-cli -h master_ip -p master_port
+SET key value
+```
+
+
+
+
+
+
+
+
+
 ## Install Sentinel
 Install Redis Sentinel using below commands:
 ```
